@@ -57,7 +57,7 @@ const settings = {
   textureSmoothing: 0,
   capAngle:         20,
   symmetricDisplacement: false,
-  useDisplacement: false,
+  useDisplacement: true,
 };
 
 // ── Canvas filter support (Safari / iOS WebView don't support ctx.filter) ────
@@ -335,6 +335,10 @@ function selectPreset(idx, swatchEl) {
   resetTextureSmoothing();
   if (activeMapEntry.defaultScale != null) _applyScaleU(activeMapEntry.defaultScale);
   updatePreview();
+  
+  if (settings.useDisplacement && !dispPreviewGeometry) {
+    toggleDisplacementPreview(true);
+  }
 }
 
 // ── Event wiring ──────────────────────────────────────────────────────────────
@@ -1005,8 +1009,8 @@ function handlePlaceOnFaceClick(e) {
 
   // Reset displacement preview
   if (dispPreviewGeometry) { dispPreviewGeometry.dispose(); dispPreviewGeometry = null; }
-  settings.useDisplacement = false;
-  dispPreviewToggle.checked = false;
+  settings.useDisplacement = true;
+  dispPreviewToggle.checked = true;
 
   // Reset precision masking (geometry was rotated)
   if (precisionGeometry) { precisionGeometry.dispose(); precisionGeometry = null; }
@@ -1266,8 +1270,8 @@ function loadDefaultCube() {
 
   // Reset displacement preview
   if (dispPreviewGeometry) { dispPreviewGeometry.dispose(); dispPreviewGeometry = null; }
-  settings.useDisplacement = false;
-  dispPreviewToggle.checked = false;
+  settings.useDisplacement = true;
+  dispPreviewToggle.checked = true;
 
   // Reset exclusion state
   excludedFaces     = new Set();
@@ -1411,6 +1415,9 @@ async function handleModelFile(file) {
 
     exportBtn.disabled = (activeMapEntry === null);
     updatePreview();
+    if (settings.useDisplacement && activeMapEntry) {
+      toggleDisplacementPreview(true);
+    }
   } catch (err) {
     console.error('Failed to load model:', err);
     alert(t('alerts.loadFailed', { msg: err.message }));
