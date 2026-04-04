@@ -1347,8 +1347,8 @@ async function handleModelFile(file) {
 
     // Reset displacement preview for the new mesh
     if (dispPreviewGeometry) { dispPreviewGeometry.dispose(); dispPreviewGeometry = null; }
-    settings.useDisplacement = false;
-    dispPreviewToggle.checked = false;
+    settings.useDisplacement = true;
+    dispPreviewToggle.checked = true;
 
     // Reset precision masking for the new mesh
     if (precisionGeometry) { precisionGeometry.dispose(); precisionGeometry = null; }
