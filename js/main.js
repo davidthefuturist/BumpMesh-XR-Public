@@ -480,28 +480,32 @@ function wireEvents() {
   //   document.getElementById('store-cta-wrapper').classList.add('store-cta-hidden');
   // });
 
+  // // ── Export ──
+  // exportBtn.addEventListener('click', () => {
+  //   if (sessionStorage.getItem('stlt-no-sponsor') === '1') {
+  //     handleExport();
+  //     return;
+  //   }
+  //   const overlay = document.getElementById('sponsor-overlay');
+  //   const closeBtn = document.getElementById('sponsor-close');
+  //   const storeLink = overlay.querySelector('.sponsor-link');
+  //   overlay.classList.remove('hidden');
+
+  //   const dismiss = () => {
+  //     if (document.getElementById('sponsor-dont-show').checked) {
+  //       sessionStorage.setItem('stlt-no-sponsor', '1');
+  //     }
+  //     overlay.classList.add('hidden');
+  //     handleExport();
+  //   };
+
+  //   closeBtn.onclick = dismiss;
+  //   // Also start processing when the user clicks through to the store
+  //   storeLink.onclick = () => setTimeout(dismiss, 150);
+  // });
   // ── Export ──
   exportBtn.addEventListener('click', () => {
-    if (sessionStorage.getItem('stlt-no-sponsor') === '1') {
-      handleExport();
-      return;
-    }
-    const overlay = document.getElementById('sponsor-overlay');
-    const closeBtn = document.getElementById('sponsor-close');
-    const storeLink = overlay.querySelector('.sponsor-link');
-    overlay.classList.remove('hidden');
-
-    const dismiss = () => {
-      if (document.getElementById('sponsor-dont-show').checked) {
-        sessionStorage.setItem('stlt-no-sponsor', '1');
-      }
-      overlay.classList.add('hidden');
-      handleExport();
-    };
-
-    closeBtn.onclick = dismiss;
-    // Also start processing when the user clicks through to the store
-    storeLink.onclick = () => setTimeout(dismiss, 150);
+    handleExport();
   });
 
   // ── Wireframe ──
