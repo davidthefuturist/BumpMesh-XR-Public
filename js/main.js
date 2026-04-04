@@ -475,10 +475,10 @@ function wireEvents() {
     if (e.target === imprintOverlay) imprintOverlay.classList.add('hidden');
   });
 
-  // ── Support banner dismiss ──
-  document.getElementById('store-cta-dismiss').addEventListener('click', () => {
-    document.getElementById('store-cta-wrapper').classList.add('store-cta-hidden');
-  });
+  // // ── Support banner dismiss ──
+  // document.getElementById('store-cta-dismiss').addEventListener('click', () => {
+  //   document.getElementById('store-cta-wrapper').classList.add('store-cta-hidden');
+  // });
 
   // ── Export ──
   exportBtn.addEventListener('click', () => {
