@@ -1,3 +1,22 @@
+BumpMesh by CNC Kitchen with:
+- 3D rendering turned on all the time
+- Ads disabled
+
+https://davidthefuturist.github.io/BumpMesh-XR-Public/
+
+
+
+
+
+Support CNC Kitchen: https://cnckitchen.store/
+
+
+
+
+
+
+
+
 # STL Texturizer
 
 **Live demo:** https://cnckitchen.github.io/stlTexturizer/
